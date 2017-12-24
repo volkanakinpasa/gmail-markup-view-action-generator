@@ -1,0 +1,43 @@
+<div class = "view-action-main">
+  <h1>View Action</h1>
+  <div>
+      <input type="text" [(ngModel)] = "viewAction.description">
+  </div>
+  <div>
+      <input type="text" [(ngModel)] = "viewAction.target">
+  </div>
+  <div>
+      <input type="text" [(ngModel)] = "viewAction.name">
+  </div>
+  <h2>JSON-LD</h2>
+  <![CDATA[
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "EmailMessage",
+    "description": "{{viewAction.description}}",
+    "potentialAction": {
+      "@type": "ViewAction",
+      "target": "{{viewAction.target}}",
+      "name": "{{viewAction.name}}",
+      "url": "{{viewAction.url}}"
+    }
+  }
+  </script>
+  ]]>
+  <h2>MICRODATA</h2>
+  <![CDATA[
+  <div itemscope itemtype="http://schema.org/EmailMessage">
+    <div itemprop="potentialAction" itemscope itemtype="http://schema.org/ViewAction">
+      <link itemprop="target" href="{{viewAction.target}}"/>
+      <link itemprop="url" href="{{viewAction.url}}"/>
+      <meta itemprop="name" content="{{viewAction.name}}"/>
+    </div>
+    <meta itemprop="description" content="{{viewAction.description}}"/>
+  </div>
+  ]]>   
+<div>
+  to validate on Email Markup Tester, please visit 
+  <a href="https://www.google.com/webmasters/markup-tester/">www.google.com/webmasters/markup-tester</a>
+</div>
+</div>
