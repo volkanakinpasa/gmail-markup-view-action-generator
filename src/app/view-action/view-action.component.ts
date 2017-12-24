@@ -4,7 +4,7 @@ export class ViewAction {
   description: string;
   target: string;
   name: string;
-  url: string
+  url: string;
 }
 
 @Component({
